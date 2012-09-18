@@ -299,7 +299,7 @@
                 return $.ajax({
                     url     : (typeof this.settings.url === 'function') ? this.settings.url.call(this) : this.settings.url,
                     data    : params,
-                    type    : 'post',
+                    type    : this.settings.method,
                     dataType: 'json'
                 });
             }
@@ -472,6 +472,7 @@
         pk:null, //primary key or record
         value:null, //real value, not shown. Especially usefull for select
         emptytext:'Empty', //text shown on empty element
+        method:'post', //method to send request to server
         params:null, //additional params to submit
         send:'auto', // strategy for sending data on server: 'always', 'never', 'auto' (default). 'auto' = 'ifpk' (deprecated)
         autotext:'auto', //can be auto|never|always. Useful for select element: if 'auto' -> element text will be automatically set by provided value and source (in case source is object so no extra request will be performed).
